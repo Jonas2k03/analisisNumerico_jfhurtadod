@@ -57,7 +57,17 @@ namespace raices {
 			aproximaciones.push_back(a);
 		}
 	};
-	
+	/**
+	 * @brief Determina si el x dado se evalua en cero (es raíz)
+	 * @param f Evaluador de la funcion
+	 * @param x Valor a evaluar
+	 * @return true si f(x) = 0, false en caso contrario
+	*/
+	bool es_raiz(expression & f, double x){
+		
+		
+		return fabs(f(x)) <= DBL_EPSILON;
+	}
 	
 	/**
 	* @brief Imprime una solucion encontrada
@@ -68,7 +78,7 @@ namespace raices {
 			cout << "No se pudo encontrar la raiz" << endl;
 		}
 		else {
-			cout << "Raiz: " << sol.raiz <<endl;
+			cout << "Raiz: " << setprecision(9) << sol.raiz <<endl;
 		}
 		
 		size_t cantAproximaciones = sol.aproximaciones.size();
@@ -94,11 +104,17 @@ namespace raices {
 				<< setw(3) <<"   "
 				<< setw(15) <<setprecision(9) <<ap.nuevo
 				<< setw(3) <<"   "
-				<< setw(20) <<setprecision(9) << ap.erp 
+				<< setw(20) <<setprecision(3) << ap.erp 
 				<< endl;
 		}
 		
 	}
+	
+	/**
+	* @brief Establece la raiz encontrada
+	* @param val Valor de la raiz
+	*/
+	
 	
 	
 };

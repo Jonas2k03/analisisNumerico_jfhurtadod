@@ -12,6 +12,7 @@ using std::endl;
 using std::string;
 using raices::aproximacion;
 using raices::solucion;
+using raices::es_raiz;
 
 namespace raices{
 	
@@ -33,6 +34,22 @@ namespace raices{
 		solucion encontrar_raiz(double xa, double xb, double tol, int n){
 			//solucion a retornar
 			solucion sol;
+			//Verificar los extremos del intervalo 
+			
+			if(es_raiz(f, xa)) {
+				sol.raiz = xa;
+				return sol;
+			}
+			
+			if(es_raiz(f, xb)) {
+				sol.raiz = xb;
+				return sol;
+			}
+			
+			//Verificar el teorema de valor intermedio
+			if(f(xa)* f(xb) > 0) {
+				return sol;
+			}
 			
 			
 			//Paso 1
@@ -57,7 +74,7 @@ namespace raices{
 				sol.agregar(ap);
 				
 				//Paso 5
-				if(xNueva<DBL_EPSILON || ap.erp < tol){
+				if(es_raiz(f, xNueva)|| ap.erp < tol){
 					sol.raiz = xNueva;
 					return sol;
 				}

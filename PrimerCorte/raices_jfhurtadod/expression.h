@@ -151,6 +151,11 @@ public:
 					return sin(x);
 				}
 		},
+		{ "sen" ,
+			[](double x) -> double {
+				return sin(x);
+			}
+		},
 		{ "cos" ,
 			[](double x) -> double {
 				return cos(x);

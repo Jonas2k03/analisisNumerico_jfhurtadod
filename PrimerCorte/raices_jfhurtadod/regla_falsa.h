@@ -8,6 +8,7 @@
 #include "expression.h"
 #include "raices.h"
 
+using raices::es_raiz;
 using std::cout;
 using std::endl;
 using std::string;
@@ -37,7 +38,19 @@ namespace raices{
 		solucion encontrar_raiz(double xi, double xs, double tol, int n){
 			//solucion a retornar
 			solucion sol;
+			if(es_raiz(f, xi)) {
+				sol.raiz = xi;
+				return sol;
+			}
 			
+			if(es_raiz(f, xs)) {
+				sol.raiz = xs;
+				return sol;
+			}
+			
+			if(f(xi)* f(xs) > 0) {
+				return sol;
+			}
 			
 			//Paso 1
 			int i=1;
