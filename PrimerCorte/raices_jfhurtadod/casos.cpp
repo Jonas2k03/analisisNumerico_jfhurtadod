@@ -25,7 +25,7 @@ using raices::secante;
 using raices::newton_raphson_g;
 using raices::muller;
 
-#define TOL 1e-5f
+#define TOL 1e-7f
 
 
 
@@ -176,7 +176,7 @@ void caso_2() {
 	
 	imprimir_solucion(solSec);
 }
-void caso_3(){
+void caso_3() {
 	string str_func = "(e^(~x)) + x^2 - 2";
 	double xInf = -1.0f; //Extremo inferior
 	double xSup = 0.0f; //Exremo superior
@@ -330,11 +330,17 @@ void caso_6() {
 void caso_parcial() {
 	
 	//string str_func = "x^2 * (0.6e-6f) - ((2 * sqrt(2)) / 225) * x - 2";
-	string str_func= "x^2*(0.6*e-6f) - (((2 * sqrt(2)) / 225)*x - 2";
-	double xInf = 0.0f;
-	double xSup = 50.0f;
+	//string str_func= "x^2*(6*10^(~7)) - (((2 * sqrt(2)) / 225)*x - 2";
+	string str_func = "x^2 - (((4*sqrt(2))/27)*10^5)*x - (10^7)/3";
+	
+	double xInf = -5.0f;
+	double xSup = 5000.0f;
 	
 	int n = 100;
+	
+	cout << "Funcion: " << str_func << endl;
+	cout << "Intervalo: " << xInf << "..." << xSup  <<endl;
+	
 	cout << "\nSolucion por el metodo de regla falsa" << endl;
 	
 	//Crea una instancia del metodo
@@ -356,10 +362,12 @@ void caso_parcial() {
 	
 	imprimir_solucion(solSec);
 	
+ //inicio newton
+	
 	cout << "\nSolucion por el metodo de newton_raphson" << endl;
 	double p0 = xInf;
-	string str_devf = "2*x*(0.6e-6f) - ((2 * sqrt(2)) / 225)";
-		
+	string str_devf = "2*x - ((4*sqrt(2))/(27))*10^5";
+	//string str_devf = "0.5 * e^ ~ (0.05x)";
 	newton_raphson nr(str_func,str_devf);
 	
 	solucion solNr = nr.encontrar_raiz(p0, TOL, n);
