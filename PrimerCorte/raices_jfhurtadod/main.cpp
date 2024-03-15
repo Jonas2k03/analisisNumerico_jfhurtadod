@@ -12,7 +12,7 @@ int main (int argc, char *argv[]) {
 	* @brief Caso 1. e^~(x)-ln(x)
 	*/
 	
-	caso_1();
+	//caso_1();
 	
 	/**
 	* @brief Caso 2. x^3+4*x^2-10
@@ -42,6 +42,13 @@ int main (int argc, char *argv[]) {
 	*/
 	
 	//caso_6();
+	
+	
+	/**
+	* @brief Caso Parcial.  x^2 * (0.6e-6f) - ((2*(sqrt(2)))/2)*x - 2 = 0
+	*/
+	
+	caso_parcial2();
 	
 	
 	

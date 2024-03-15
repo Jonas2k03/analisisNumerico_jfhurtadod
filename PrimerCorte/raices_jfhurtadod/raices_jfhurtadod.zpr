@@ -15,15 +15,15 @@ tab_width=4
 tab_use_spaces=0
 explorer_path=.
 inherits_from=
-current_source=muller.h
+current_source=casos.cpp
 path_char=\
 [source]
 path=main.cpp
-cursor=43:3
+cursor=41:3
 open=true
 [source]
 path=casos.cpp
-cursor=27:11
+cursor=378:54
 marker=59
 open=true
 [header]
@@ -48,7 +48,7 @@ cursor=30:2
 open=true
 [header]
 path=casos.h
-cursor=40:11
+cursor=47:91
 open=true
 [header]
 path=secante.h
@@ -60,7 +60,7 @@ cursor=51:56
 open=true
 [header]
 path=muller.h
-cursor=49:17
+cursor=19:27
 open=true
 [config]
 name=Debug

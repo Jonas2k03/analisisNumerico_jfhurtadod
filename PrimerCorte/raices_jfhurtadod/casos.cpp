@@ -327,3 +327,67 @@ void caso_6() {
 	
 }
 
+void caso_parcial() {
+	
+	//string str_func = "x^2 * (0.6e-6f) - ((2 * sqrt(2)) / 225) * x - 2";
+	string str_func= "x^2*(0.6*e-6f) - (((2 * sqrt(2)) / 225)*x - 2";
+	double xInf = 0.0f;
+	double xSup = 50.0f;
+	
+	int n = 100;
+	cout << "\nSolucion por el metodo de regla falsa" << endl;
+	
+	//Crea una instancia del metodo
+	regla_falsa rf(str_func);
+	
+	//Entrontrar la raiz en el intervalo dado.
+	solucion solRf =rf.encontrar_raiz(xInf, xSup, TOL, n);
+	
+	//Imprimir la solucion
+	imprimir_solucion(solRf);
+	
+	cout << "\nSolucion por el metodo de la secante" << endl;
+	
+	double x0 = xInf;
+	double x1 = xSup;
+	secante sec(str_func);
+	
+	solucion solSec =sec.encontrar_raiz(x0,x1, TOL, n);
+	
+	imprimir_solucion(solSec);
+	
+	cout << "\nSolucion por el metodo de newton_raphson" << endl;
+	double p0 = xInf;
+	string str_devf = "2*x*(0.6e-6f) - ((2 * sqrt(2)) / 225)";
+		
+	newton_raphson nr(str_func,str_devf);
+	
+	solucion solNr = nr.encontrar_raiz(p0, TOL, n);
+	
+	imprimir_solucion(solNr);
+}
+void caso_parcial2() {
+	double tol = TOL;
+	int n = 100;
+	
+	double xInf = 0.0f;
+	double xSup = 20.0f;
+	string str_func = "-36.05*x^7 + 546x^6 + 22449*x^4 + 67284*x^3 + 118124x^2 - 109584x";
+	string str_devf = "7*-36.05*x^6 + 6*546x^5 + 4*22449*x^3 + 3*67284*x^2 + 2*118124x - 109584";
+	string str_dev2f = "6*7*-36.05*x^5 + 6*5*546x^4 + 4*3*22449*x^2 + 3*2*67284*x + 2*118124";
+
+	cout << "\nSolucion por el metodo de newton_raphson" << endl;
+	newton_raphson nr(str_func,str_devf);
+	
+	double p0=xInf;
+	solucion solNr = nr.encontrar_raiz(p0, tol, n);
+	
+	imprimir_solucion(solNr);
+	
+	cout << "\nSolucion por el metodo de Newton Raphson Generalizado" << endl;
+	newton_raphson_g nrg(str_func,str_devf, str_dev2f);
+	
+	solucion solNrg = nrg.encontrar_raiz(p0, tol, n);
+	
+	imprimir_solucion(solNrg);
+}
