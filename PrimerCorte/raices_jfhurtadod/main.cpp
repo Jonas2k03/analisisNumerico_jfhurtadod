@@ -48,7 +48,13 @@ int main (int argc, char *argv[]) {
 	* @brief Caso Parcial.  x^2 * (0.6e-6f) - ((2*(sqrt(2)))/2)*x - 2 = 0
 	*/
 	
-	caso_parcial();
+	//caso_parcial();
+	
+	/**
+	* @brief Caso Parcial.  ~36.05*x^7 + 546*x^6 + 22449*x^4 + 67284*x^3 + 118124*x^3 - 109584*x
+	*/
+	
+	caso_parcial2();
 	
 	
 	

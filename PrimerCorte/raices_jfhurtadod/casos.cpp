@@ -333,8 +333,8 @@ void caso_parcial() {
 	//string str_func= "x^2*(6*10^(~7)) - (((2 * sqrt(2)) / 225)*x - 2";
 	string str_func = "x^2 - (((4*sqrt(2))/27)*10^5)*x - (10^7)/3";
 	
-	double xInf = -5.0f;
-	double xSup = 5000.0f;
+	double xInf = 20000.0f;
+	double xSup = 21000.0f;
 	
 	int n = 100;
 	
@@ -379,10 +379,10 @@ void caso_parcial2() {
 	int n = 100;
 	
 	double xInf = 0.0f;
-	double xSup = 20.0f;
-	string str_func = "-36.05*x^7 + 546x^6 + 22449*x^4 + 67284*x^3 + 118124x^2 - 109584x";
-	string str_devf = "7*-36.05*x^6 + 6*546x^5 + 4*22449*x^3 + 3*67284*x^2 + 2*118124x - 109584";
-	string str_dev2f = "6*7*-36.05*x^5 + 6*5*546x^4 + 4*3*22449*x^2 + 3*2*67284*x + 2*118124";
+	double xSup = 10.0f;
+	string str_func = "-36.05*x^7 + 546*x^6 + 22449*x^4 + 67284*x^3 + 118124*x^3 - 109584*x";
+	string str_devf = "-252.35*x^6 + 3276*x^5 + 89796*x^3 + 201852*x^2 + 236248*x - 10958";
+	string str_dev2f = "-1514.1*x^5 + 16380*x^4  + 269388*x^2 + 403704*x + 236248";
 
 	cout << "\nSolucion por el metodo de newton_raphson" << endl;
 	newton_raphson nr(str_func,str_devf);

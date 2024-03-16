@@ -19,11 +19,11 @@ current_source=casos.cpp
 path_char=\
 [source]
 path=main.cpp
-cursor=49:1
+cursor=50:3
 open=true
 [source]
 path=casos.cpp
-cursor=336:18
+cursor=314:1
 marker=59
 open=true
 [header]
@@ -36,7 +36,7 @@ cursor=156:4
 open=true
 [header]
 path=raices.h
-cursor=92:3
+cursor=116:1
 open=true
 [header]
 path=regla_falsa.h
@@ -44,11 +44,11 @@ cursor=10:21
 open=true
 [header]
 path=newton_raphson.h
-cursor=0:8
+cursor=30:2
 open=true
 [header]
 path=casos.h
-cursor=49:0
+cursor=47:91
 open=true
 [header]
 path=secante.h
