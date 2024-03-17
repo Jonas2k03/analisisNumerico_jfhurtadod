@@ -99,9 +99,9 @@ void caso_1() {
 	cout << "\nSolucion por el metodo de Muller" << endl;
 	
 	
-	 x0 = 0.5f;
-	 x1 = 2.0f;
-	 double x2 = 4.0f;
+	 x0 = 0.25f;
+	 x1 = 0.75f;
+	 double x2 = 3.25f;
 	 
 	 cout << "Puntos de la parabola: " << x0 << "..." << x1 << "..."<< x2  <<endl;
 	
@@ -376,14 +376,17 @@ void caso_parcial() {
 }
 void caso_parcial2() {
 	double tol = TOL;
-	int n = 100;
+	int n = 1000;
 	
-	double xInf = 0.0f;
+	double xInf = -5.0f;
 	double xSup = 10.0f;
-	string str_func = "-36.05*x^7 + 546*x^6 + 22449*x^4 + 67284*x^3 + 118124*x^3 - 109584*x";
-	string str_devf = "-252.35*x^6 + 3276*x^5 + 89796*x^3 + 201852*x^2 + 236248*x - 10958";
-	string str_dev2f = "-1514.1*x^5 + 16380*x^4  + 269388*x^2 + 403704*x + 236248";
+	string str_func = "~36.05*x^7 + 546*x^6 + 22449*x^4 + 67284*x^3 + 118124*x^3 - 109584*x";
+	string str_devf = "~252.35*x^6 + 3276*x^5 + 89796*x^3 + 201852*x^2 + 236248*x - 10958";
+	string str_dev2f = "~1514.1*x^5 + 16380*x^4  + 269388*x^2 + 403704*x + 236248";
 
+	cout << "Funcion: " << str_func << endl;
+	cout << "Intervalo: " << xInf << "..." << xSup  <<endl;
+	
 	cout << "\nSolucion por el metodo de newton_raphson" << endl;
 	newton_raphson nr(str_func,str_devf);
 	
@@ -398,4 +401,44 @@ void caso_parcial2() {
 	solucion solNrg = nrg.encontrar_raiz(p0, tol, n);
 	
 	imprimir_solucion(solNrg);
+	
+	
+	double x0 = -1.5f;
+	double x1 = 0.0f;
+	double x2 = 1.5f;
+	
+	cout << "\nSolucion por el metodo de Muller" << endl;
+	cout << "Funcion: " << str_func << endl;
+	cout << "Puntos de la parabola: " << x0 << "..." << x1 << "..."<< x2  <<endl;
+	
+	muller mull(str_func);
+	
+	solucion solMull =mull.encontrar_raiz(x2,x1,x0, tol, n);
+	
+	imprimir_solucion(solMull);
+	
+}
+
+void caso_muller() {
+	
+	
+	double tol = TOL;
+	int n = 100;
+	
+	
+	double x0 = -1.0f;
+	double x1 = 0.0f;
+	double x2 = 1.36523001f;
+	
+	string str_func = "x^3 + 4*x^2 - 10";
+	
+	cout << "\nSolucion por el metodo de Muller" << endl;
+	cout << "Puntos de la parabola: " << x0 << "..." << x1 << "..."<< x2  <<endl;
+	
+	muller mull(str_func);
+	
+	solucion solMull =mull.encontrar_raiz(x0,x1,x2, tol, n);
+	
+	imprimir_solucion(solMull);
+	
 }

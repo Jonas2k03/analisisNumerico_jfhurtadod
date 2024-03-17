@@ -56,7 +56,7 @@ int main (int argc, char *argv[]) {
 	
 	caso_parcial2();
 	
-	
+	//caso_muller();
 	
 	return 0;
 }
